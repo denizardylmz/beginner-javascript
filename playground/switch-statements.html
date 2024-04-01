@@ -11,6 +11,64 @@
 
 <body>
 
+<img width="200" src="./turtle.png" alt="Turt" class="turt">
+
+
+<style>
+
+.turt {
+  position: relative;
+  --x:10px;
+  --y:10px;
+  transform: rotateY(0) translateX(var(--x)) translateY(var(--y));
+  transition: 0.2s;
+}
+
+
+</style>
+
+
+  <script>
+    const turtle = document.querySelector('.turt');
+    let x = 10;
+    let y = 10;
+    const speed = 50;
+    let flip = false; 
+
+function handleKeyDown(event) {
+   if (!event.key.includes('Arrow')) return;
+  switch (event.key) {
+    case 'ArrowUp':
+      y -= 10;
+      break;
+    case 'ArrowDown':
+      console.log(event.key);
+      y += 10;
+      break;
+    case 'ArrowLeft':
+      x -= 10;
+      flip = true;
+      console.log(event.key);
+      break;
+    case 'ArrowRight':
+      x += 10;
+      console.log(event.key);
+      flip = false;
+      break;
+    default:
+      console.log('Default!');
+      break;
+  }
+
+
+
+  turtle.setAttribute('style', `--x: ${x}px; --y: ${y}px;`);
+}
+
+
+    window.addEventListener('keydown', handleKeyDown)
+  </script>
+
 </body>
 
 </html>

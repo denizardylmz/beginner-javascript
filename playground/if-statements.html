@@ -10,8 +10,11 @@
 
 <body>
   <script>
-    if (10 > 2) {
-      console.log('Yep');
+    function sluggify(sentence, lowerCase) {
+      if (lowerCase) {
+        return sentence.replace(/\s/g, "-").toLowerCase();
+      }
+      return sentence.replace(/\s/g, "-");
     }
   </script>
 </body>
